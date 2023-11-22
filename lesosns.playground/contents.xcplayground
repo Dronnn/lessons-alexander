@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' buildActiveScheme='true' importAppTypes='true'>
+    <pages>
+        <page name='lesson1'/>
+        <page name='tasks1'/>
+        <page name='solution1'/>
+        <page name='lesson2'/>
+        <page name='tasks2'/>
+        <page name='solution2'/>
+        <page name='lesson3'/>
+        <page name='tasks3'/>
+        <page name='lesson4'/>
+        <page name='tasks4'/>
+        <page name='lesson5'/>
+        <page name='tesks5'/>
+        <page name='lesson6'/>
+        <page name='tasks6'/>
+        <page name='lesson7'/>
+        <page name='tasks7'/>
+        <page name='lesson8'/>
+        <page name='tasks8'/>
+        <page name='lesson9'/>
+        <page name='tasks9'/>
+    </pages>
+</playground>
