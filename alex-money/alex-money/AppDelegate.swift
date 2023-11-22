@@ -10,7 +10,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // this is main window
+    
     var window: UIWindow?
 
     func application(
