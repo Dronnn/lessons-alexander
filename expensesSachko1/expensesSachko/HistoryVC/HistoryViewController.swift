@@ -8,11 +8,15 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
-    
+
+    // MARK: - properties
+
+    var presenter: HistoryPresenter
+
     // MARK: - consts
 
     private enum Const { // namespace
-        static let heightCellTransactions: CGFloat = 80
+        static let heightCellTransactions: CGFloat = 80.0
     }
     
     // MARK: - subviews
@@ -24,6 +28,15 @@ class HistoryViewController: UIViewController {
     }()
 
     //MARK: - life cycle
+
+    init(presenter: HistoryPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,18 +78,43 @@ class HistoryViewController: UIViewController {
     }
 }
 
+// MARK: -
+
+extension HistoryViewController {
+    funс showDetailViewController(with viewModel: DetailsViewModel) {
+        let detailsVC = DetailViewController(with: viewModel)
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
+}
+
 extension HistoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
         return Const.heightCellTransactions
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        presenter.pressedCell(with: indexPath)
     }
 }
 
 extension HistoryViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        MainViewController().transactions.count // 
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        presenter.transactions.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         return UITableViewCell()
     }
     

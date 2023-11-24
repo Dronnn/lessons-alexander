@@ -42,16 +42,13 @@ class MainViewController: UIViewController {
     ]
     var balance = Balance(income: 0, expense: 0)
 
-    
     // MARK: - life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         title = "Dashboard"
-        
-        
-        
+
         setupTabbarItem()
         setupTableView()
     }
