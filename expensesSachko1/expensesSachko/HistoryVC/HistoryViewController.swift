@@ -1,0 +1,83 @@
+//
+//  HistoryViewController.swift
+//  expensesSachko
+//
+//  Created by Sap on 07.11.2023.
+//
+
+import UIKit
+
+class HistoryViewController: UIViewController {
+    
+    // MARK: - consts
+
+    private enum Const { // namespace
+        static let heightCellTransactions: CGFloat = 80
+    }
+    
+    // MARK: - subviews
+    
+    private lazy var tableView = {
+        let table = UITableView(frame: .zero)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+
+    //MARK: - life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "History"
+        
+        setupTabbarItem()
+        setupTableView()
+    }
+    
+    // MARK: - Set Up
+        
+    private func setupTableView() {
+                
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(RecordCell.self, forCellReuseIdentifier: RecordCell.cellId)
+        
+        tableView.separatorStyle = .none
+        
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+
+    private func setupTabbarItem() {
+        tabBarItem = UITabBarItem(
+            title: "history",
+            image: UIImage(
+                systemName: "list.bullet.circle"
+            ),
+            selectedImage: UIImage(systemName: "list.bullet.circle.fill")
+        )
+    }
+}
+
+extension HistoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Const.heightCellTransactions
+    }
+}
+
+extension HistoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        MainViewController().transactions.count // 
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
