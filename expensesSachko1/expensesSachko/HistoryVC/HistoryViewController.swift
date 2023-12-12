@@ -81,8 +81,8 @@ class HistoryViewController: UIViewController {
 // MARK: -
 
 extension HistoryViewController {
-    funс showDetailViewController(with viewModel: DetailsViewModel) {
-        let detailsVC = DetailViewController(with: viewModel)
+    func showDetailsViewController(with viewModel: DetailsViewModel) {
+        let detailsVC = DetailsViewController(with: viewModel)
         navigationController?.pushViewController(detailsVC, animated: true)
     }
 }
@@ -111,11 +111,23 @@ extension HistoryViewController: UITableViewDataSource {
         presenter.transactions.count
     }
     
-    func tableView(
-        _ tableView: UITableView,
-        cellForRowAt indexPath: IndexPath
-    ) -> UITableViewCell {
-        return UITableViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: RecordCell.cellId,
+                for: indexPath
+            ) as? RecordCell
+        else { fatalError() }
+        cell.setup(
+            with: RecordCell.ViewModel(
+                title: presenter.transactions[indexPath.row].title,
+                category: presenter.transactions[indexPath.row].category.rawValue,
+                date: presenter.transactions[indexPath.row].dateString,
+                amount: presenter.transactions[indexPath.row].amountString,
+                image: presenter.transactions[indexPath.row].category.image
+            )
+        )
+        return cell
     }
-    
 }
+

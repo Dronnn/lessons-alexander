@@ -26,10 +26,11 @@ class HistoryPresenter {
     func pressedCell(with indexPath: IndexPath) {
         // получить даные
         let data = transactions[indexPath.row]
-        // сформировать вью модель
-//        let viewModel = ...
-        // передать команду на открытие detailsVC с вьюмоделью
-        viewController.showDetailViewController(with: viewModel)
+        let viewModel = DetailsViewModel(
+            title: data.title,
+            moneyIncom: data.amountString
+        )
+        viewController?.showDetailsViewController(with: viewModel)
     }
 
 

@@ -36,7 +36,7 @@ class TabBarController: UITabBarController {
         let nc2 = UINavigationController(rootViewController: vc2)
         nc2.navigationBar.prefersLargeTitles = true
         vc2.view.backgroundColor = .systemBackground
-        
+
         let vc3 = SettingsViewController()
         let nc3 = UINavigationController(rootViewController: vc3)
         nc3.navigationBar.prefersLargeTitles = true

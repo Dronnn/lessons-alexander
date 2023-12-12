@@ -19,6 +19,8 @@
 		2E5C54352AFA8A7A00674D9A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C54342AFA8A7A00674D9A /* SettingsViewController.swift */; };
 		963A98F22B07C0CB00DBA3D1 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963A98F12B07C0CB00DBA3D1 /* Balance.swift */; };
 		963A98F42B07C0D700DBA3D1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963A98F32B07C0D700DBA3D1 /* Transaction.swift */; };
+		965511582B2368A100FECD03 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965511572B2368A100FECD03 /* DetailsViewController.swift */; };
+		9655115B2B23690500FECD03 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655115A2B23690500FECD03 /* DetailsPresenter.swift */; };
 		96D273162B107E19008E2E6E /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D273152B107E19008E2E6E /* HistoryPresenter.swift */; };
 		96D273182B1083EB008E2E6E /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D273172B1083EB008E2E6E /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		2E5C54342AFA8A7A00674D9A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		963A98F12B07C0CB00DBA3D1 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		963A98F32B07C0D700DBA3D1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		965511572B2368A100FECD03 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		9655115A2B23690500FECD03 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		96D273152B107E19008E2E6E /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
 		96D273172B1083EB008E2E6E /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,7 +80,9 @@
 				2E5C54302AFA867800674D9A /* TabBarController.swift */,
 				2E576B6E2B089E9300708669 /* MainVC */,
 				2E576B6F2B089EAB00708669 /* HistoryVC */,
+				965511592B2368E600FECD03 /* Details */,
 				2E576B702B089EBD00708669 /* SettingsVC */,
+				9655115C2B2371CA00FECD03 /* Model */,
 				2E576B672B03B22000708669 /* ProfileViewController.swift */,
 				2E0061732AFA7DC200778517 /* Assets.xcassets */,
 				2E0061752AFA7DC200778517 /* LaunchScreen.storyboard */,
@@ -109,7 +115,6 @@
 			isa = PBXGroup;
 			children = (
 				2E5C54322AFA8A6C00674D9A /* HistoryViewController.swift */,
-				96D273172B1083EB008E2E6E /* DetailsViewModel.swift */,
 				96D273152B107E19008E2E6E /* HistoryPresenter.swift */,
 			);
 			path = HistoryVC;
@@ -121,6 +126,23 @@
 				2E5C54342AFA8A7A00674D9A /* SettingsViewController.swift */,
 			);
 			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		965511592B2368E600FECD03 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				965511572B2368A100FECD03 /* DetailsViewController.swift */,
+				9655115A2B23690500FECD03 /* DetailsPresenter.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		9655115C2B2371CA00FECD03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96D273172B1083EB008E2E6E /* DetailsViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +218,7 @@
 				96D273162B107E19008E2E6E /* HistoryPresenter.swift in Sources */,
 				963A98F42B07C0D700DBA3D1 /* Transaction.swift in Sources */,
 				2E5C54312AFA867800674D9A /* TabBarController.swift in Sources */,
+				9655115B2B23690500FECD03 /* DetailsPresenter.swift in Sources */,
 				2E00616F2AFA7DBC00778517 /* MainViewController.swift in Sources */,
 				2E576B6A2B03C24B00708669 /* BalanceCell.swift in Sources */,
 				2E576B6C2B0412C000708669 /* RecordCell.swift in Sources */,
@@ -204,6 +227,7 @@
 				2E576B682B03B22000708669 /* ProfileViewController.swift in Sources */,
 				2E5C54352AFA8A7A00674D9A /* SettingsViewController.swift in Sources */,
 				2E5C54332AFA8A6C00674D9A /* HistoryViewController.swift in Sources */,
+				965511582B2368A100FECD03 /* DetailsViewController.swift in Sources */,
 				96D273182B1083EB008E2E6E /* DetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
