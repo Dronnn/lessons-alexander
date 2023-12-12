@@ -7,7 +7,7 @@
 
 import Foundation
 
-// TDO model
+// DTO model
 // data-transfer-object
 struct DetailsViewModel {
     let title: String
