@@ -81,7 +81,7 @@ class HistoryViewController: UIViewController {
 // MARK: -
 
 extension HistoryViewController {
-    funс showDetailViewController(with viewModel: DetailsViewModel) {
+    func showDetailViewController(with viewModel: DetailsViewModel) {
         let detailsVC = DetailViewController(with: viewModel)
         navigationController?.pushViewController(detailsVC, animated: true)
     }
