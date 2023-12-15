@@ -8,9 +8,17 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
+
+    private let settingsManager = SettingsManager.shared
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(
+            SettingsCell.self,
+            forCellReuseIdentifier: SettingsCell.cellId
+        )
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -38,7 +46,16 @@ class SettingsViewController: UIViewController {
     
     // MARK: Set Up Navigation
     private func setupNavigation() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(logInAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(
+                systemName: "person.crop.circle"
+            ),
+            style: .plain,
+            target: self,
+            action: #selector(
+                logInAction
+            )
+        )
     }
     
     //MARK: add actions
@@ -80,13 +97,16 @@ extension SettingsViewController: UITableViewDataSource {
             for: indexPath
         ) as? SettingsCell
         else { fatalError() }
-        cell.setup(
-            with: SettingsCell.ViewModelSettings(title: <#String#>, image: <#UIImage#>, buttonType: <#typeOfButtonSettingsTableView#>
+
+        settingsManager.useFaceID = true
+
+//        cell.setup(
+//            with: SettingsCell.ViewModelSettings(title: <#String#>, image: <#UIImage#>, buttonType: <#typeOfButtonSettingsTableView#>
 //                summ: "\(balance.income + balance.expense)",
 //                income: "\(balance.income)",
 //                expense: "\(balance.expense)"
-            )
-        )
-
+//            )
+//        )
+        return cell
     }
 }

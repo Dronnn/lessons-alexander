@@ -18,6 +18,7 @@
 		2E5C54332AFA8A6C00674D9A /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C54322AFA8A6C00674D9A /* HistoryViewController.swift */; };
 		2E5C54352AFA8A7A00674D9A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5C54342AFA8A7A00674D9A /* SettingsViewController.swift */; };
 		2EC11C432B2C94EF00409730 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC11C422B2C94EF00409730 /* SettingsCell.swift */; };
+		9630605E2B2CA673008E83F8 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9630605D2B2CA673008E83F8 /* SettingsManager.swift */; };
 		963A98F22B07C0CB00DBA3D1 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963A98F12B07C0CB00DBA3D1 /* Balance.swift */; };
 		963A98F42B07C0D700DBA3D1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963A98F32B07C0D700DBA3D1 /* Transaction.swift */; };
 		965511582B2368A100FECD03 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965511572B2368A100FECD03 /* DetailsViewController.swift */; };
@@ -40,6 +41,7 @@
 		2E5C54322AFA8A6C00674D9A /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		2E5C54342AFA8A7A00674D9A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2EC11C422B2C94EF00409730 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		9630605D2B2CA673008E83F8 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		963A98F12B07C0CB00DBA3D1 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		963A98F32B07C0D700DBA3D1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		965511572B2368A100FECD03 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				2E5C54342AFA8A7A00674D9A /* SettingsViewController.swift */,
+				9630605D2B2CA673008E83F8 /* SettingsManager.swift */,
 				2EC11C422B2C94EF00409730 /* SettingsCell.swift */,
 			);
 			path = SettingsVC;
@@ -230,6 +233,7 @@
 				2E576B682B03B22000708669 /* ProfileViewController.swift in Sources */,
 				2E5C54352AFA8A7A00674D9A /* SettingsViewController.swift in Sources */,
 				2E5C54332AFA8A6C00674D9A /* HistoryViewController.swift in Sources */,
+				9630605E2B2CA673008E83F8 /* SettingsManager.swift in Sources */,
 				965511582B2368A100FECD03 /* DetailsViewController.swift in Sources */,
 				96D273182B1083EB008E2E6E /* DetailsViewModel.swift in Sources */,
 				2EC11C432B2C94EF00409730 /* SettingsCell.swift in Sources */,

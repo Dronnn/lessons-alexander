@@ -82,7 +82,7 @@ final class SettingsCell: UITableViewCell {
     func setup(with model: ViewModelSettings) {
         title.text = model.title
         image.image = model.image
-        button.setImage({}, for: <#T##UIControl.State#>)
+//        button.setImage({}, for: <#T##UIControl.State#>)
         switch model.buttonType {
         case .slide :
             button.setImage(UIImage(systemName: "switch.2"), for: .normal)
