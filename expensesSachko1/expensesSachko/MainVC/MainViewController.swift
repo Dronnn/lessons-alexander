@@ -66,9 +66,6 @@ class MainViewController: UIViewController {
         tableView.register(RecordCell.self, forCellReuseIdentifier: RecordCell.cellId)
         
         tableView.separatorStyle = .none
-//        tableView.separatorStyle = .singleLine
-//        tableView.separatorColor = UIColor.lightGray
-//        tableView.separatorInset = UIEdgeInsets(top: 50, left: 0, bottom: 50, right: 0)
         
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -103,8 +100,14 @@ class MainViewController: UIViewController {
         }
         return (amountIncome, amountExpense)
     }
+    
+    private func openDetailsView(indexPath: IndexPath) {
+        let vc = DetailsViewController(with: DetailsViewModel(title: transactions[indexPath.row].title, moneyIncom: transactions[indexPath.row].amountString))
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
+//MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
  
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -119,8 +122,13 @@ extension MainViewController: UITableViewDelegate {
             return Const.heightCellTransactions
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openDetailsView(indexPath: indexPath)
+    }
 }
 
+//MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -196,8 +204,6 @@ extension MainViewController {
                 for: indexPath
             ) as? RecordCell
         else { fatalError() }
-//        let padding = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-//        cell.layoutMargins = padding
         cell.setup(
             with: RecordCell.ViewModel(
                 title: transactions[indexPath.row].title,

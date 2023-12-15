@@ -9,41 +9,42 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    private let profile: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "person.crop.circle"), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Settings"
-        
         setupTabbarItem()
         setupTableView()
-        addActions()
+        setupNavigation()
     }
     
     //MARK: Set Up TableView
-    
     private func setupTableView() {
-        view.addSubview(profile)
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            profile.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            profile.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            profile.widthAnchor.constraint(equalToConstant: 30),
-            profile.heightAnchor.constraint(equalToConstant: 30)
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+
         ])
     }
     
+    // MARK: Set Up Navigation
+    private func setupNavigation() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.crop.circle"), style: .plain, target: self, action: #selector(logInAction))
+    }
+    
     //MARK: add actions
-    private func addActions(){
-        profile.addAction(UIAction(handler: { [weak self] _ in
-            let vc = ProfileViewController()
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }), for: .touchUpInside)
+    @objc private func logInAction(){
+        let vc = ProfileViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
         
     //MARK: Set Up TabbarItem
@@ -57,5 +58,35 @@ class SettingsViewController: UIViewController {
                 systemName: "gear.circle.fill"
             )
         )
+    }
+}
+
+extension SettingsViewController: UITableViewDelegate {
+}
+
+extension SettingsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard
+            let cell = tableView.dequeueReusableCell(
+            withIdentifier: SettingsCell.cellId,
+            for: indexPath
+        ) as? SettingsCell
+        else { fatalError() }
+        cell.setup(
+            with: SettingsCell.ViewModelSettings(title: <#String#>, image: <#UIImage#>, buttonType: <#typeOfButtonSettingsTableView#>
+//                summ: "\(balance.income + balance.expense)",
+//                income: "\(balance.income)",
+//                expense: "\(balance.expense)"
+            )
+        )
+
     }
 }

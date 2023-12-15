@@ -78,7 +78,7 @@ class HistoryViewController: UIViewController {
     }
 }
 
-// MARK: -
+// MARK: - 
 
 extension HistoryViewController {
     func showDetailsViewController(with viewModel: DetailsViewModel) {

@@ -10,6 +10,13 @@ import UIKit
 class DetailsViewController: UIViewController {
 
     let viewModel: DetailsViewModel
+    
+    private let titleLabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        return label
+    }()
 
     // MARK: - life cycle
 
